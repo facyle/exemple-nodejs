@@ -1,0 +1,71 @@
+<html lang="fr">
+  <link href="style.css" rel="stylesheet" media="all" type="text/css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random dog</title>
+  </head>
+
+  <body>
+    <button id="fetch-dog" class="button" onclick="fetchRandom()">woof</button>
+    <div
+      style="align-content: center; width: 300; height: 300"
+      id="iench-content"
+    >
+      <img
+        src="https://random.dog/dfa13171-c941-4e93-b61c-b68fb25581ce.png"
+        alt="iench"
+        id="iench"
+      />
+    </div>
+
+    <script>
+      /*document
+        .querySelector("#fetch-dog")
+        .addEventListener("click", async () => {
+          console.log("appel de l'api");
+          let response2 = fetch("https://random.dog/woof.json", {
+            method: "GET",
+          })
+            .then((response) => {
+              return response.json();
+            })
+            .then((jsonResponse) => {
+              let url = jsonResponse.url;
+              console.log(`url du nouveau iench : ${url}`);
+              if (url.endsWith(".mp4")) {
+                document.getElementById(
+                  "iench-content"
+                ).innerHTML = `<video><source src=${url}></source></video>`;
+              } else {
+                document.getElementById(
+                  "iench-content"
+                ).innerHTML = `<img src=${url}></img>`;
+              }
+              document.getElementById("iench-content");
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+
+          /*let response = await fetch("https://random.dog/woof.json", {
+            method: "GET",
+          });*/
+      //});
+
+      async function fetchRandom() {
+        const response = await fetch("http://localhost:8080/health", {
+          mode: "cors",
+        });
+        console.log(JSON.stringify(response));
+        if (response.status === 200) {
+          document.getElementById("iench-content").innerHTML =
+            await response.text();
+        } else {
+          document.getElementById("iench-content").innerHTML =
+            "<marquee>La loose, il y a une erreur</marquee>";
+        }
+      }
+    </script>
+  </body>
+</html>
