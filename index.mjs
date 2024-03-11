@@ -14,7 +14,7 @@ export default function initServer() {
     res.status(200).send(`ok ${random}`);
   });
 
-  app.listen(8080, () => {
-    console.log(`🌏 Server is listening as http on port 8080`);
+  app.listen(9001, () => {
+    console.log(`🌏 Server is listening as http on port 9001`);
   });
 }
