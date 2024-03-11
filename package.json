@@ -5,6 +5,7 @@
   "main": "index.mjs",
   "type": "module",
   "scripts": {
+    "build": "npm install",
     "proxy": "node --experimental-modules index.mjs"
   },
   "dependencies": {
